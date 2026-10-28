@@ -19,168 +19,104 @@
             overflow-x: hidden;
         }
 
-        /* Živé, pulzující pozadí napojené přímo na tvůj soubor pozadi.jpg */
+        /* Hlavní obrazovka s tvým hotovým obrázkem (včetně nápisu v grafice) */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding: 3rem 1rem 2rem 1rem;
-            background-image: linear-gradient(rgba(3, 3, 7, 0.3), rgba(3, 3, 7, 0.6)), url('pozadi.jpg');
+            padding: 2rem 1rem 1.5rem 1rem;
+            background-image: linear-gradient(rgba(3, 3, 7, 0.1), rgba(3, 3, 7, 0.7)), url('pozadi.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            animation: nebulaBreathe 8s ease-in-out infinite alternate;
-        }
-
-        /* Dýchání a pulzování celé mlhoviny */
-        @keyframes nebulaBreathe {
-            0% {
-                filter: brightness(0.95) contrast(100%) hue-rotate(0deg);
-            }
-            50% {
-                filter: brightness(1.1) contrast(105%) hue-rotate(5deg);
-            }
-            100% {
-                filter: brightness(0.95) contrast(100%) hue-rotate(-5deg);
-            }
-        }
-
-        /* Vrstva živých rotujících prvků vesmíru */
-        .space-life {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .cosmic-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 600px;
-            height: 600px;
-            margin-top: -300px;
-            margin-left: -300px;
-            border-radius: 50%;
-            border: 1px dashed rgba(0, 255, 255, 0.2);
-            animation: spinUniverse 40s linear infinite;
-        }
-
-        @keyframes spinUniverse {
-            0% { transform: rotate(0deg) scale(0.9); }
-            50% { transform: rotate(180deg) scale(1.05); }
-            100% { transform: rotate(360deg) scale(0.9); }
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             width: 100%;
             z-index: 2;
-            position: relative;
+            margin-bottom: 1rem;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-            text-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #e2e8f0;
-            margin-bottom: 2.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
-
+        /* Kompaktní mřížka pro tlačítka, aby hezky seděla na mobilu */
         .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
         }
 
         .nav-card {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 1.5rem 1rem;
+            padding: 0.9rem 1.2rem;
             text-decoration: none;
             color: #ffffff;
             background: rgba(10, 10, 20, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
         }
 
         .nav-card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.6rem;
+            margin-right: 1rem;
         }
 
         .nav-card h2 {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 700;
+            text-align: left;
         }
 
         /* 1. TV - Kyanová */
         .card-tv {
             border: 2px solid #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 12px rgba(0, 255, 255, 0.25);
         }
         .card-tv h2 { color: #00ffff; }
         .card-tv:hover {
-            background: rgba(0, 255, 255, 0.25);
-            box-shadow: 0 0 35px rgba(0, 255, 255, 0.7);
-            transform: translateY(-5px);
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
         }
 
         /* 2. Music & Studio - Magenta */
         .card-music {
             border: 2px solid #ff00ff;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.25);
         }
         .card-music h2 { color: #ff00ff; }
         .card-music:hover {
-            background: rgba(255, 0, 255, 0.25);
-            box-shadow: 0 0 35px rgba(255, 0, 255, 0.7);
-            transform: translateY(-5px);
+            background: rgba(255, 0, 255, 0.2);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
         }
 
         /* 3. Alt. Umění - Jantarová */
         .card-art {
             border: 2px solid #ffb700;
-            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
+            box-shadow: 0 0 12px rgba(255, 183, 0, 0.25);
         }
         .card-art h2 { color: #ffb700; }
         .card-art:hover {
-            background: rgba(255, 183, 0, 0.25);
-            box-shadow: 0 0 35px rgba(255, 183, 0, 0.7);
-            transform: translateY(-5px);
+            background: rgba(255, 183, 0, 0.2);
+            box-shadow: 0 0 25px rgba(255, 183, 0, 0.6);
         }
 
+        /* Patka */
         footer {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #aaa;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
             z-index: 2;
-            position: relative;
+            margin-top: 0.5rem;
         }
 
         footer a {
@@ -192,14 +128,7 @@
 <body>
 
     <section class="hero">
-        <div class="space-life">
-            <div class="cosmic-ring"></div>
-        </div>
-
         <div class="container">
-            <h1>Stingerium Project</h1>
-            <p class="subtitle">"Vše co tvoříš, je zhmotněné..."</p>
-
             <div class="nav-grid">
                 <a href="tv.html" class="nav-card card-tv">
                     <div class="icon">📺</div>
@@ -219,7 +148,7 @@
         </div>
 
         <footer>
-            <p>Powered by <strong>N.O.V.E. Philosophy</strong> &bull; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
+            <p>Powered by <strong>N.O.V.E. Philosophy</strong> &bull; <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
         </footer>
     </section>
 
