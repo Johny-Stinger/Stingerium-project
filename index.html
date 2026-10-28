@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stingerium AI TV & Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            background-color: #05050a;
+            overflow-x: hidden;
+        }
+
+        /* Hero sekce s vesmírným pozadím */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            /* Zatmění a barevná galaxie s rukama na pozadí */
+            background: linear-gradient(rgba(5, 5, 10, 0.75), rgba(5, 5, 10, 0.85)), 
+                        radial-gradient(circle, rgba(138,43,226,0.3) 0%, rgba(0,0,0,0.9) 80%),
+                        url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #e0e0e0;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .manifesto-box {
+            background: rgba(15, 15, 25, 0.7);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 2.5rem;
+        }
+
+        .manifesto-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-align: right;
+        }
+
+        /* Tlačítka a navigace */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #7928CA, #FF0080);
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* Patka */
+        footer {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Stingerium Network</h1>
+            <p class="subtitle">"Vše co tvoříš, je zhmotněné..."</p>
+
+            <div class="manifesto-box">
+                <p class="manifesto-text">
+                    "Celý můj projekt vzniká z touhy po svobodě jak v přítomném okamžiku tak i v tom digitálním. Žádné reklamy, žádné poplatky, VIP členství. Prostě dát nám tvůrcům svých snů, svobodný prostor pro sdílení vlastních vizí. Ať jde o AI filmy či AI hudbu, ale i tu vlastní (míněno bez AI). Co místo přežívání začít žít!"
+                </p>
+                <div class="author">— Johny Stinger</div>
+            </div>
+
+            <div class="btn-group">
+                <a href="#tv" class="btn btn-primary">📺 Stingerium AI TV (Příprava)</a>
+                <a href="#creators" class="btn btn-secondary">🤝 Zapojit se jako tvůrce</a>
+            </div>
+
+            <footer>
+                <p>Powered by <strong>N.O.V.E. Philosophy</strong> &bull; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
+            </footer>
+        </div>
+    </section>
+
+</body>
+  </html>
+  
