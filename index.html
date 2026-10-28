@@ -15,11 +15,11 @@
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #ffffff;
-            background-color: #05050a;
+            background-color: #030307;
             overflow-x: hidden;
         }
 
-        /* Hero sekce s vesmírným pozadím */
+        /* Hero sekce s hlubokou galaktickou atmosférou */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -29,13 +29,31 @@
             align-items: center;
             text-align: center;
             padding: 2rem 1rem;
-            /* Zatmění a barevná galaxie s rukama na pozadí */
-            background: linear-gradient(rgba(5, 5, 10, 0.75), rgba(5, 5, 10, 0.85)), 
-                        radial-gradient(circle, rgba(138,43,226,0.3) 0%, rgba(0,0,0,0.9) 80%),
-                        url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(121, 40, 202, 0.4) 0%, rgba(5, 5, 10, 0) 60%),
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.15) 0%, rgba(5, 5, 10, 0) 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 128, 0.2) 0%, rgba(5, 5, 10, 0) 50%),
+                linear-gradient(135deg, #030307 0%, #0c0814 50%, #030307 100%);
+        }
+
+        /* Vizuální prvek pro galaxii / ruce (připraveno pro tvůj obraz) */
+        .universe-visual {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem auto;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(121,40,202,0.6) 50%, transparent 80%);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3), 0 0 80px rgba(121, 40, 202, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(0.95); box-shadow: 0 0 30px rgba(0, 255, 255, 0.2); }
+            100% { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 0, 128, 0.4); }
         }
 
         .container {
@@ -59,16 +77,16 @@
             font-style: italic;
             color: #e0e0e0;
             margin-bottom: 2.5rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
         }
 
         .manifesto-box {
-            background: rgba(15, 15, 25, 0.7);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 12px;
+            background: rgba(15, 15, 25, 0.75);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 16px;
             padding: 2rem;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             margin-bottom: 2.5rem;
         }
 
@@ -79,10 +97,11 @@
         }
 
         .author {
-            margin-top: 1rem;
+            margin-top: 1.2rem;
             font-weight: bold;
             color: #00ffff;
             text-align: right;
+            letter-spacing: 1px;
         }
 
         /* Tlačítka a navigace */
@@ -130,7 +149,10 @@
         }
 
         footer a {
-            color: #aaa;
+            color: #00ffff;
+            text-decoration: none;
+        }
+        footer a:hover {
             text-decoration: underline;
         }
     </style>
@@ -139,6 +161,11 @@
 
     <section class="hero">
         <div class="container">
+            <!-- Vizuální jádro galaxie -->
+            <div class="universe-visual" title="Neznámá galaxie v rukou">
+                🌌
+            </div>
+
             <h1>Stingerium Network</h1>
             <p class="subtitle">"Vše co tvoříš, je zhmotněné..."</p>
 
@@ -150,8 +177,8 @@
             </div>
 
             <div class="btn-group">
-                <a href="#tv" class="btn btn-primary">📺 Stingerium AI TV (Příprava)</a>
-                <a href="#creators" class="btn btn-secondary">🤝 Zapojit se jako tvůrce</a>
+                <a href="#tv" class="btn btn-primary">📺 Stingerium AI TV</a>
+                <a href="#creators" class="btn btn-secondary">🤝 Zapojit se</a>
             </div>
 
             <footer>
@@ -161,5 +188,4 @@
     </section>
 
 </body>
-  </html>
-  
+</html>
