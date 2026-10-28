@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stingerium AI TV & Studio</title>
+    <title>Stingerium Project</title>
     <style>
         * {
             margin: 0;
@@ -16,170 +16,260 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #ffffff;
             background-color: #030307;
+            overflow-x: hidden;
         }
 
-        /* Hero sekce s hlubokou galaktickou atmosférou */
+        /* Živé, pulzující pozadí s tvým obrázkem */
         .hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             text-align: center;
-            padding: 2.5rem 1rem;
-            background: 
-                radial-gradient(circle at 50% 20%, rgba(121, 40, 202, 0.35) 0%, rgba(3, 3, 7, 0) 60%),
-                radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, rgba(3, 3, 7, 0) 50%),
-                linear-gradient(135deg, #030307 0%, #0c0814 50%, #030307 100%);
+            padding: 3rem 1rem 2rem 1rem;
+            background-image: linear-gradient(rgba(3, 3, 7, 0.35), rgba(3, 3, 7, 0.65)), url('pozadi.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: nebulaBreathe 8s ease-in-out infinite alternate;
         }
 
-        /* Vizuální prvek pro galaxii */
-        .universe-visual {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.2rem auto;
+        /* Dýchání a pulzování celé mlhoviny */
+        @keyframes nebulaBreathe {
+            0% {
+                filter: brightness(0.9) contract(100%) hue-rotate(0deg);
+            }
+            50% {
+                filter: brightness(1.15) contract(105%) hue-rotate(8deg);
+            }
+            100% {
+                filter: brightness(0.95) contract(100%) hue-rotate(-5deg);
+            }
+        }
+
+        /* Vrstva živých rotujících a pulzujících prvků vesmíru */
+        .space-life {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Světelný zářící prstenec v hloubce */
+        .cosmic-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            margin-top: -300px;
+            margin-left: -300px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(121,40,202,0.6) 60%, transparent 85%);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.25), 0 0 60px rgba(121, 40, 202, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            animation: pulseGlow 4s ease-in-out infinite alternate;
+            border: 1px dashed rgba(0, 255, 255, 0.25);
+            box-shadow: 0 0 50px rgba(121, 40, 202, 0.2);
+            animation: spinUniverse 40s linear infinite;
         }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(0.95); box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
-            100% { transform: scale(1.05); box-shadow: 0 0 45px rgba(255, 0, 128, 0.3); }
+        .cosmic-ring-2 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            margin-top: -200px;
+            margin-left: -200px;
+            border-radius: 50%;
+            border: 1px dotted rgba(255, 0, 255, 0.2);
+            animation: spinUniverse 25s linear infinite reverse;
+        }
+
+        @keyframes spinUniverse {
+            0% { transform: rotate(0deg) scale(0.9); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(0.9); }
+        }
+
+        /* Problikávající hvězdy v různých vzdálenostech */
+        .star-sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #00ffff;
+            animation: sparkle 3s ease-in-out infinite alternate;
+        }
+
+        .star-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .star-2 { top: 70%; left: 80%; animation-delay: 1s; width: 6px; height: 6px; }
+        .star-3 { top: 35%; left: 85%; animation-delay: 2s; }
+        .star-4 { top: 75%; left: 20%; animation-delay: 1.5s; width: 5px; height: 5px; }
+
+        @keyframes sparkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.6); box-shadow: 0 0 15px #ff00ff, 0 0 25px #00ffff; }
+            100% { opacity: 0.3; transform: scale(0.9); }
         }
 
         .container {
-            max-width: 750px;
+            max-width: 900px;
             width: 100%;
             z-index: 2;
+            position: relative;
         }
 
+        /* Hlavní titulek prosvítající skrze mlhovinu */
         h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            font-weight: 900;
+            text-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+            animation: glowText 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            0% { filter: drop-shadow(0 0 10px rgba(0,255,255,0.4)); }
+            100% { filter: drop-shadow(0 0 25px rgba(255,0,255,0.8)); }
         }
 
         .subtitle {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-style: italic;
-            color: #d1d5db;
-            margin-bottom: 2rem;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
-        }
-
-        .manifesto-box {
-            background: rgba(12, 12, 22, 0.85);
-            border: 1px solid rgba(0, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .manifesto-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
             color: #e2e8f0;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
         }
 
-        .author {
+        /* Barevné rozcestí */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
             margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: #00ffff;
-            text-align: right;
-            letter-spacing: 0.5px;
         }
 
-        /* Tlačítka a navigace */
-        .btn-group {
+        .nav-card {
             display: flex;
-            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9rem;
-            font-weight: bold;
+            padding: 1.5rem 1rem;
             text-decoration: none;
-            color: #fff;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
+            color: #ffffff;
+            background: rgba(10, 10, 20, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .nav-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .nav-card h2 {
+            font-size: 1.05rem;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #7928CA, #FF0080);
-            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
+        /* Barevné odlišení kanálů s neónovou zářením */
+        .card-tv {
             border: 2px solid #00ffff;
-            color: #00ffff;
-            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        .card-tv h2 { color: #00ffff; }
+        .card-tv:hover {
+            background: rgba(0, 255, 255, 0.25);
+            box-shadow: 0 0 35px rgba(0, 255, 255, 0.7);
+            transform: translateY(-5px) scale(1.02);
         }
 
-        /* Patka */
+        .card-music {
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+        .card-music h2 { color: #ff00ff; }
+        .card-music:hover {
+            background: rgba(255, 0, 255, 0.25);
+            box-shadow: 0 0 35px rgba(255, 0, 255, 0.7);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .card-art {
+            border: 2px solid #ffb700;
+            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
+        }
+        .card-art h2 { color: #ffb700; }
+        .card-art:hover {
+            background: rgba(255, 183, 0, 0.25);
+            box-shadow: 0 0 35px rgba(255, 183, 0, 0.7);
+            transform: translateY(-5px) scale(1.02);
+        }
+
         footer {
-            margin-top: 2.5rem;
-            font-size: 0.75rem;
-            color: #888;
+            font-size: 0.8rem;
+            color: #aaa;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+            z-index: 2;
+            position: relative;
         }
 
         footer a {
             color: #00ffff;
             text-decoration: none;
         }
-        footer a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <div class="container">
-            <!-- Vizuální jádro galaxie -->
-            <div class="universe-visual" title="Neznámá galaxie v rukou">
-                🌌
-            </div>
+        <!-- Živá animovaná vrstva vesmíru -->
+        <div class="space-life">
+            <div class="cosmic-ring"></div>
+            <div class="cosmic-ring-2"></div>
+            <div class="star-sparkle star-1"></div>
+            <div class="star-sparkle star-2"></div>
+            <div class="star-sparkle star-3"></div>
+            <div class="star-sparkle star-4"></div>
+        </div>
 
-            <h1>Stingerium Network</h1>
+        <div class="container">
+            <h1>Stingerium Project</h1>
             <p class="subtitle">"Vše co tvoříš, je zhmotněné..."</p>
 
-            <div class="manifesto-box">
-                <p class="manifesto-text">
-                    "Celý můj projekt vzniká z touhy po svobodě jak v přítomném okamžiku tak i v tom digitálním. Žádné reklamy, žádné poplatky, VIP členství. Prostě dát nám tvůrcům svých snů, svobodný prostor pro sdílení vlastních vizí. Ať jde o AI filmy či AI hudbu, ale i tu vlastní (míněno bez AI). Co místo přežívání začít žít!"
-                </p>
-                <div class="author">— Johny Stinger</div>
-            </div>
+            <div class="nav-grid">
+                <a href="tv.html" class="nav-card card-tv">
+                    <div class="icon">📺</div>
+                    <h2>Stingerium AI TV</h2>
+                </a>
 
-            <div class="btn-group">
-                <a href="#tv" class="btn btn-primary">📺 Stingerium AI TV</a>
-                <a href="#creators" class="btn btn-secondary">🤝 Zapojit se</a>
-            </div>
+                <a href="music.html" class="nav-card card-music">
+                    <div class="icon">🎵</div>
+                    <h2>Music & Studio</h2>
+                </a>
 
-            <footer>
-                <p>Powered by <strong>N.O.V.E. Philosophy</strong> &bull; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
-            </footer>
+                <a href="art.html" class="nav-card card-art">
+                    <div class="icon">🌌</div>
+                    <h2>Alt. Umění & N.O.V.E.</h2>
+                </a>
+            </div>
         </div>
+
+        <footer>
+            <p>Powered by <strong>N.O.V.E. Philosophy</strong> &bull; Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></p>
+        </footer>
     </section>
 
 </body>
