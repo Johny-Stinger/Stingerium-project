@@ -19,7 +19,18 @@
             overflow-x: hidden;
         }
 
-        /* Hlavní obrazovka s tvým hotovým obrázkem (včetně nápisu v grafice) */
+        /* Kontejner pro živé video na pozadí */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Hlavní obrazovka s flexboxem, aby se obsah držel dole nad rukama */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -28,87 +39,91 @@
             justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding: 2rem 1rem 1.5rem 1rem;
-            background-image: linear-gradient(rgba(3, 3, 7, 0.1), rgba(3, 3, 7, 0.7)), url('pozadi.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            padding: 2rem 1rem 2rem 1rem;
+            /* Tmavý závoj přes video, aby text a ikony perfektně vynikly */
+            background: linear-gradient(rgba(3, 3, 7, 0.2), rgba(3, 3, 7, 0.6));
         }
 
         .container {
-            max-width: 800px;
+            max-width: 600px;
             width: 100%;
             z-index: 2;
             margin-bottom: 1rem;
         }
 
-        /* Kompaktní mřížka pro tlačítka, aby hezky seděla na mobilu */
-        .nav-grid {
+        /* Styl mobilních aplikací - Mřížka pro ikonki */
+        .app-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        /* Vzhled jedné "mobilní aplikace" */
+        .app-icon-card {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            width: 100%;
-        }
-
-        .nav-card {
-            display: flex;
             align-items: center;
-            padding: 0.9rem 1.2rem;
+            justify-content: center;
+            width: 95px;
+            height: 95px;
             text-decoration: none;
             color: #ffffff;
-            background: rgba(10, 10, 20, 0.75);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            background: rgba(15, 15, 30, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 22px; /* iOS / Android app style zaoblení */
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            animation: appFloat 4s ease-in-out infinite;
         }
 
-        .nav-card .icon {
-            font-size: 1.6rem;
-            margin-right: 1rem;
+        /* Odlišené barvy a časy vznášení pro každou appku */
+        .app-tv {
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            animation-delay: 0s;
+        }
+        .app-music {
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            animation-delay: 1.3s;
+        }
+        .app-art {
+            border: 2px solid #ffb700;
+            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
+            animation-delay: 2.6s;
         }
 
-        .nav-card h2 {
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+        @keyframes appFloat {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-6px) scale(1.03); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        .app-icon-card:hover {
+            transform: translateY(-10px) scale(1.08);
+            background: rgba(30, 30, 50, 0.9);
+        }
+
+        .app-icon-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .app-icon-card span {
+            font-size: 0.65rem;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             font-weight: 700;
-            text-align: left;
+            text-align: center;
+            padding: 0 4px;
         }
 
-        /* 1. TV - Kyanová */
-        .card-tv {
-            border: 2px solid #00ffff;
-            box-shadow: 0 0 12px rgba(0, 255, 255, 0.25);
-        }
-        .card-tv h2 { color: #00ffff; }
-        .card-tv:hover {
-            background: rgba(0, 255, 255, 0.2);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
-        }
-
-        /* 2. Music & Studio - Magenta */
-        .card-music {
-            border: 2px solid #ff00ff;
-            box-shadow: 0 0 12px rgba(255, 0, 255, 0.25);
-        }
-        .card-music h2 { color: #ff00ff; }
-        .card-music:hover {
-            background: rgba(255, 0, 255, 0.2);
-            box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
-        }
-
-        /* 3. Alt. Umění - Jantarová */
-        .card-art {
-            border: 2px solid #ffb700;
-            box-shadow: 0 0 12px rgba(255, 183, 0, 0.25);
-        }
-        .card-art h2 { color: #ffb700; }
-        .card-art:hover {
-            background: rgba(255, 183, 0, 0.2);
-            box-shadow: 0 0 25px rgba(255, 183, 0, 0.6);
-        }
+        .app-tv span { color: #00ffff; }
+        .app-music span { color: #ff00ff; }
+        .app-art span { color: #ffb700; }
 
         /* Patka */
         footer {
@@ -116,7 +131,6 @@
             color: #aaa;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
             z-index: 2;
-            margin-top: 0.5rem;
         }
 
         footer a {
@@ -127,22 +141,29 @@
 </head>
 <body>
 
+    <!-- Živé video na pozadí -->
+    <video autoplay loop muted playsinline class="video-background">
+        <source src="pozadi.mp4" type="video/mp4">
+        Tvůj prohlížeč nepodporuje video pozadí.
+    </video>
+
     <section class="hero">
         <div class="container">
-            <div class="nav-grid">
-                <a href="tv.html" class="nav-card card-tv">
-                    <div class="icon">📺</div>
-                    <h2>Stingerium AI TV</h2>
+            <!-- Živé ikonky jako aplikace v telefonu -->
+            <div class="app-grid">
+                <a href="tv.html" class="app-icon-card app-tv">
+                    <div class="emoji">📺</div>
+                    <span>AI TV</span>
                 </a>
 
-                <a href="music.html" class="nav-card card-music">
-                    <div class="icon">🎵</div>
-                    <h2>Music & Studio</h2>
+                <a href="music.html" class="app-icon-card app-music">
+                    <div class="emoji">🎵</div>
+                    <span>Studio</span>
                 </a>
 
-                <a href="art.html" class="nav-card card-art">
-                    <div class="icon">🌌</div>
-                    <h2>Alt. Umění & N.O.V.E.</h2>
+                <a href="art.html" class="app-icon-card app-art">
+                    <div class="emoji">🌌</div>
+                    <span>N.O.V.E.</span>
                 </a>
             </div>
         </div>
